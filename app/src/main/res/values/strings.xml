@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">COMP3717Assignment2</string>
+    <string name="logout">logout</string>
+    <string name="student2">Jeffrey Jin (A01026121)</string>
+    <string name="student1">Ethan Sadowski ()</string>
+    <string name="age_group_cases">Cases by age group</string>
+    <string name="health_authority_cases">Cases by health authority</string>
+    <string name="gender_cases">Cases by gender</string>
+    <string name="date_cases"><![CDATA[Cases by month & year]]></string>
 </resources>
