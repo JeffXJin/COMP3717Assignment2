@@ -7,4 +7,7 @@
     <string name="health_authority_cases">Cases by health authority</string>
     <string name="gender_cases">Cases by gender</string>
     <string name="date_cases"><![CDATA[Cases by month & year]]></string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="find">Find</string>
 </resources>
