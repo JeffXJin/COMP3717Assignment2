@@ -25,7 +25,7 @@ public class DateCasesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_cases);
 
-        databasePersons = FirebaseDatabase.getInstance().getReference("comp3717assignment2-8265b-default-rtdb");
+        databasePersons = FirebaseDatabase.getInstance().getReference();
         lvPersons = findViewById(R.id.lvPersons);
         personsList = new ArrayList<Person>();
     }
