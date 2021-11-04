@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">COMP3717Assignment2</string>
-    <string name="logout">logout</string>
     <string name="student2">Jeffrey Jin (A01026121)</string>
     <string name="student1">Ethan Sadowski ()</string>
     <string name="age_group_cases">Cases by age group</string>
@@ -15,4 +14,8 @@
     <string name="password">Password</string>
     <string name="login_title">LOGIN</string>
     <string name="create_new_account">Create new account</string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="find">Find</string>
+    <string name="date_text">Enter date and click FIND to search for cases.</string>
 </resources>
