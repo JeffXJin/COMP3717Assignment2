@@ -1,0 +1,487 @@
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>*.iml\r\n.gradle\r\n/local.properties\r\n/.idea/caches\r\n/.idea/libraries\r\n/.idea/modules.xml\r\n/.idea/workspace.xml\r\n/.idea/navEditor.xml\r\n/.idea/assetWizardSettings.xml\r\n.DS_Store\r\n/build\r\n/captures\r\n.externalNativeBuild\r\n.cxx\r\nlocal.properties\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision 9410e9e82d657d0e93eedfa55568fd348a72d182)
++++ b/.gitignore	(date 1635791005888)
+@@ -6,6 +6,8 @@
+ /.idea/modules.xml
+ /.idea/workspace.xml
+ /.idea/navEditor.xml
++/.idea/misc.xml
++.idea/misc.xml
+ /.idea/assetWizardSettings.xml
+ .DS_Store
+ /build
+@@ -13,3 +15,5 @@
+ .externalNativeBuild
+ .cxx
+ local.properties
++.idea
++/.idea
+Index: app/src/main/java/ca/bcit/comp3717assignment2/RecyclerAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/ca/bcit/comp3717assignment2/RecyclerAdapter.java b/app/src/main/java/ca/bcit/comp3717assignment2/RecyclerAdapter.java
+new file mode 100644
+--- /dev/null	(date 1635790710317)
++++ b/app/src/main/java/ca/bcit/comp3717assignment2/RecyclerAdapter.java	(date 1635790710317)
+@@ -0,0 +1,72 @@
++//package ca.bcit.comp3717assignment2;
++//
++//import android.content.Context;
++//import android.view.LayoutInflater;
++//import android.view.ViewGroup;
++//import android.widget.ImageView;
++//import android.widget.TextView;
++//
++//import androidx.annotation.NonNull;
++//import androidx.cardview.widget.CardView;
++//import androidx.recyclerview.widget.RecyclerView;
++//
++//import com.squareup.picasso.Picasso;
++//
++//import java.util.ArrayList;
++//
++//public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
++//    private Context _context;
++//    private ArrayList<Contributor> contributorArrayList;
++//    private String[] captions;
++//
++//    public RecyclerAdapter(Context c, ArrayList<Contributor> contributors) {
++//        _context = c;
++//        contributorArrayList = contributors;
++//    }
++//
++//    public static class ViewHolder extends RecyclerView.ViewHolder {
++//        private CardView cardView;
++//
++//        public ViewHolder(CardView v) {
++//            super(v);
++//            cardView = v;
++//        }
++//    }
++//
++//    @NonNull
++//    @Override
++//    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
++//        CardView cv = (CardView) LayoutInflater.from(_context)
++//                .inflate(R.layout.card_item, parent, false);
++//
++//        return new ViewHolder(cv);
++//
++//    }
++//
++//    @Override
++//    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
++//        final CardView cardView = holder.cardView;
++//
++//        Contributor currentItem = contributorArrayList.get(position);
++//
++//        TextView tvName = cardView.findViewById(R.id.loginName);
++//        ImageView ivPictureUrl = cardView.findViewById(R.id.image_view);
++//
++//        tvName.setText(currentItem.getLoginName());
++//
++//        //uses asynchronous class to download picture
++//        if (currentItem.getAvatarURL() != null) {
++//            Picasso.with(_context)
++//                    .load(currentItem.getAvatarURL())
++//                    .fit()
++//                    .centerInside()
++//                    .into(ivPictureUrl);
++//
++//        }
++//    }
++//
++//    @Override
++//    public int getItemCount() {
++//        return contributorArrayList.size();
++//    }
++//}
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Hello World!\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintLeft_toLeftOf=\"parent\"\r\n        app:layout_constraintRight_toRightOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision 9410e9e82d657d0e93eedfa55568fd348a72d182)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1635790710343)
+@@ -1,18 +1,78 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
++    android:orientation="vertical"
+     tools:context=".MainActivity">
+ 
+-    <TextView
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:text="Hello World!"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintLeft_toLeftOf="parent"
+-        app:layout_constraintRight_toRightOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:gravity="end"
++        android:orientation="horizontal">
++
++        <Button
++            android:id="@+id/logoutButton"
++            android:layout_margin="10dp"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:onClick="onAgeClick"
++            android:text="@string/logout" />
++    </LinearLayout>
++
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:gravity="center"
++        android:orientation="vertical">
++
++        <TextView
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="@string/student1">
++        </TextView>
++
++        <TextView
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="@string/student2"
++            android:layout_marginBottom="20dp"
++            >
++        </TextView>
++
++        <Button
++            android:id="@+id/ageButton"
++            android:layout_margin="10dp"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:onClick="onAgeClick"
++            android:text="@string/age_group_cases" />
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++        <Button
++            android:id="@+id/healthButton"
++            android:layout_margin="10dp"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:onClick="onHealthClick"
++            android:text="@string/health_authority_cases" />
++
++        <Button
++            android:id="@+id/genderButton"
++            android:layout_margin="10dp"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:onClick="onGenderClick"
++            android:text="@string/gender_cases" />
++
++        <Button
++            android:id="@+id/dateButton"
++            android:layout_margin="10dp"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:onClick="onDateClick"
++            android:text="@string/date_cases" />
++    </LinearLayout>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/java/ca/bcit/comp3717assignment2/DateCasesActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/ca/bcit/comp3717assignment2/DateCasesActivity.java b/app/src/main/java/ca/bcit/comp3717assignment2/DateCasesActivity.java
+new file mode 100644
+--- /dev/null	(date 1635790710313)
++++ b/app/src/main/java/ca/bcit/comp3717assignment2/DateCasesActivity.java	(date 1635790710313)
+@@ -0,0 +1,14 @@
++package ca.bcit.comp3717assignment2;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class DateCasesActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_date_cases);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"ca.bcit.comp3717assignment2\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.COMP3717Assignment2\">\r\n        <activity\r\n            android:name=\".RegisterActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".LoginActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 9410e9e82d657d0e93eedfa55568fd348a72d182)
++++ b/app/src/main/AndroidManifest.xml	(date 1635790757676)
+@@ -8,8 +8,20 @@
+         android:label="@string/app_name"
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+-        android:theme="@style/Theme.COMP3717Assignment2">
++        android:theme="@style/Theme.COMP3717Assignment2" >
+         <activity
++            android:name=".AgeCasesActivity"
++            android:exported="true" />
++        <activity
++            android:name=".HealthCasesActivity"
++            android:exported="true" />
++        <activity
++            android:name=".DateCasesActivity"
++            android:exported="true" />
++        <activity
++            android:name=".GenderCasesActivity"
++            android:exported="true" />
++        <activity
+             android:name=".RegisterActivity"
+             android:exported="true" />
+         <activity
+Index: app/src/main/java/ca/bcit/comp3717assignment2/AgeCasesActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/ca/bcit/comp3717assignment2/AgeCasesActivity.java b/app/src/main/java/ca/bcit/comp3717assignment2/AgeCasesActivity.java
+new file mode 100644
+--- /dev/null	(date 1635790710312)
++++ b/app/src/main/java/ca/bcit/comp3717assignment2/AgeCasesActivity.java	(date 1635790710312)
+@@ -0,0 +1,14 @@
++package ca.bcit.comp3717assignment2;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class AgeCasesActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_age_cases);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/ca/bcit/comp3717assignment2/HealthCasesActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/ca/bcit/comp3717assignment2/HealthCasesActivity.java b/app/src/main/java/ca/bcit/comp3717assignment2/HealthCasesActivity.java
+new file mode 100644
+--- /dev/null	(date 1635790710315)
++++ b/app/src/main/java/ca/bcit/comp3717assignment2/HealthCasesActivity.java	(date 1635790710315)
+@@ -0,0 +1,13 @@
++package ca.bcit.comp3717assignment2;
++
++import androidx.appcompat.app.AppCompatActivity;
++import android.os.Bundle;
++
++public class HealthCasesActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_health_cases);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/ca/bcit/comp3717assignment2/GenderCasesActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/ca/bcit/comp3717assignment2/GenderCasesActivity.java b/app/src/main/java/ca/bcit/comp3717assignment2/GenderCasesActivity.java
+new file mode 100644
+--- /dev/null	(date 1635790710314)
++++ b/app/src/main/java/ca/bcit/comp3717assignment2/GenderCasesActivity.java	(date 1635790710314)
+@@ -0,0 +1,14 @@
++package ca.bcit.comp3717assignment2;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class GenderCasesActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_gender_cases);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_health_cases.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_health_cases.xml b/app/src/main/res/layout/activity_health_cases.xml
+new file mode 100644
+--- /dev/null	(date 1635790710339)
++++ b/app/src/main/res/layout/activity_health_cases.xml	(date 1635790710339)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:gravity="center"
++    android:orientation="vertical"
++    tools:context=".HealthCasesActivity">
++
++  <TextView
++      android:layout_width="wrap_content"
++      android:layout_height="wrap_content"
++      android:text="@string/health_authority_cases"/>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_gender_cases.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_gender_cases.xml b/app/src/main/res/layout/activity_gender_cases.xml
+new file mode 100644
+--- /dev/null	(date 1635790710332)
++++ b/app/src/main/res/layout/activity_gender_cases.xml	(date 1635790710332)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:gravity="center"
++    android:orientation="vertical"
++    tools:context=".GenderCasesActivity">
++
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="@string/gender_cases"/>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_date_cases.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_date_cases.xml b/app/src/main/res/layout/activity_date_cases.xml
+new file mode 100644
+--- /dev/null	(date 1635790710330)
++++ b/app/src/main/res/layout/activity_date_cases.xml	(date 1635790710330)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:gravity="center"
++    android:orientation="vertical"
++    tools:context=".DateCasesActivity">
++
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="@string/date_cases"/>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/java/ca/bcit/comp3717assignment2/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ca.bcit.comp3717assignment2;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\n\r\nimport com.google.firebase.auth.FirebaseAuth;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/ca/bcit/comp3717assignment2/MainActivity.java b/app/src/main/java/ca/bcit/comp3717assignment2/MainActivity.java
+--- a/app/src/main/java/ca/bcit/comp3717assignment2/MainActivity.java	(revision 9410e9e82d657d0e93eedfa55568fd348a72d182)
++++ b/app/src/main/java/ca/bcit/comp3717assignment2/MainActivity.java	(date 1635790710373)
+@@ -4,6 +4,7 @@
+ 
+ import android.content.Intent;
+ import android.os.Bundle;
++import android.view.View;
+ 
+ import com.google.firebase.auth.FirebaseAuth;
+ 
+@@ -14,4 +15,24 @@
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
+     }
++
++    public void onAgeClick(View v) {
++        Intent intent = new Intent(this, AgeCasesActivity.class);
++        startActivity(intent);
++    }
++
++    public void onDateClick(View v) {
++        Intent intent = new Intent(this, DateCasesActivity.class);
++        startActivity(intent);
++    }
++
++    public void onHealthClick(View v) {
++        Intent intent = new Intent(this, HealthCasesActivity.class);
++        startActivity(intent);
++    }
++
++    public void onGenderClick(View v) {
++        Intent intent = new Intent(this, GenderCasesActivity.class);
++        startActivity(intent);
++    }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_age_cases.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_age_cases.xml b/app/src/main/res/layout/activity_age_cases.xml
+new file mode 100644
+--- /dev/null	(date 1635790710323)
++++ b/app/src/main/res/layout/activity_age_cases.xml	(date 1635790710323)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:gravity="center"
++    android:orientation="vertical"
++    tools:context=".AgeCasesActivity">
++
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="@string/age_group_cases"/>
++</LinearLayout>
+\ No newline at end of file

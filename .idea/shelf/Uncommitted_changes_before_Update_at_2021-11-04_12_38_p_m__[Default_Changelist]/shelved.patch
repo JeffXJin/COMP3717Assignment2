@@ -1,0 +1,36 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Users/Ethan/StudioProjects/COMP3717Assignment2/app/src/main/res/layout/activity_login.xml\" value=\"0.11347517730496454\" />\r\n        <entry key=\"..\\:/Users/Ethan/StudioProjects/COMP3717Assignment2/app/src/main/res/layout/activity_main.xml\" value=\"0.12031408308004053\" />\r\n        <entry key=\"..\\:/Users/Ethan/StudioProjects/COMP3717Assignment2/app/src/main/res/layout/activity_register.xml\" value=\"0.11347517730496454\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 66eb0d0260d8fc50ddf68b2465d48c9dc8ecc458)
++++ b/.idea/misc.xml	(date 1636054661446)
+@@ -9,6 +9,7 @@
+       </map>
+     </option>
+   </component>
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>*.iml\r\n.gradle\r\n/local.properties\r\n/.idea/caches\r\n/.idea/libraries\r\n/.idea/modules.xml\r\n/.idea/workspace.xml\r\n/.idea/navEditor.xml\r\n/.idea/assetWizardSettings.xml\r\n.DS_Store\r\n/build\r\n/captures\r\n.externalNativeBuild\r\n.cxx\r\nlocal.properties\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision 66eb0d0260d8fc50ddf68b2465d48c9dc8ecc458)
++++ b/.gitignore	(date 1635791106300)
+@@ -13,3 +13,7 @@
+ .externalNativeBuild
+ .cxx
+ local.properties
++.idea
++/.idea
++/.idea/misc.xml
++.idea/misc.xml
