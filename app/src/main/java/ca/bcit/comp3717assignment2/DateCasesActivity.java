@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,34 +39,20 @@ public class DateCasesActivity extends AppCompatActivity {
         personsList = new ArrayList<Person>();
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        databasePersons.addValueEventListener(new ValueEventListener() {
-//
-//            /**
-//             * Everytime there is a change in the list, the list will be uploaded
-//             * Method calls and clears list
-//             * @param dataSnapshot as an DataSnapshot
-//             */
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-////                personsList.clear();
-//                for (DataSnapshot personSnapshot : dataSnapshot.getChildren()) {
-//                    Person person = personSnapshot.getValue(Person.class);
-//                    personsList.add(person);
-//                }
-//
-//                PersonListAdapter adapter = new PersonListAdapter(DateCasesActivity.this, personsList);
-//                lvPersons.setAdapter(adapter);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) { }
-//        });
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.INVISIBLE);
+    }
 
     public void onFilterDate(View view) {
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+
+        final TextView dateInfoTv = findViewById(R.id.date_info_text);
+        dateInfoTv.setVisibility(View.INVISIBLE);
+
         monthEditText = findViewById(R.id.date_month);
         yearEditText = findViewById(R.id.date_year);
 
@@ -81,6 +69,7 @@ public class DateCasesActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                personsList.clear();
+                int count = 0;
                 for (DataSnapshot personSnapshot : dataSnapshot.getChildren()) {
                     Person person = personSnapshot.getValue(Person.class);
 
@@ -89,6 +78,12 @@ public class DateCasesActivity extends AppCompatActivity {
                     String dateMonth = person.Reported_Date.substring(5,7);
                     if (dateMonth.equals(monthString) && dateYear.equals(yearString)) {
                         personsList.add(person);
+                    }
+                    count++;
+                    if (count >= dataSnapshot.getChildrenCount()) {
+                        progressBar.setVisibility(View.INVISIBLE);
+                    } else {
+                        progressBar.setVisibility(View.VISIBLE);
                     }
                 }
 
