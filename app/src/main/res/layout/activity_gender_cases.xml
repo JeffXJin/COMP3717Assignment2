@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context=".GenderCasesActivity">
 
+    <include layout="@layout/toolbar" android:id="@+id/toolbar" />
+
     <LinearLayout
         android:layout_margin="10dp"
         android:layout_width="match_parent"
