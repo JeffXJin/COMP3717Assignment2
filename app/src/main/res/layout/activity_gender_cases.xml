@@ -19,18 +19,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:textColor="@color/white"
             android:background="@drawable/title_back"
             android:padding="10dp"
             android:paddingStart="100dp"
             android:paddingEnd="100dp"
             android:text="@string/gender_cases"
             android:textAlignment="center" />
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
 
         <TextView
             android:id="@+id/gender_cases_info"
@@ -41,4 +36,9 @@
             android:layout_margin="15dp" />
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 </LinearLayout>

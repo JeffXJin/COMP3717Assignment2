@@ -19,6 +19,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:textColor="@color/white"
+            android:background="@drawable/title_back"
+            android:padding="10dp"
+            android:paddingStart="100dp"
+            android:paddingEnd="100dp"
+            android:layout_gravity="center"
             android:text="@string/date_cases" />
     </LinearLayout>
 
@@ -69,14 +75,16 @@
             android:layout_gravity="center"
             android:text="@string/date_text"
             />
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+
     </LinearLayout>
     <ListView
         android:id="@+id/lvPersons"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 </LinearLayout>
