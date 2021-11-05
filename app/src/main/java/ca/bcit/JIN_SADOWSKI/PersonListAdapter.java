@@ -1,4 +1,4 @@
-package ca.bcit.comp3717assignment2;
+package ca.bcit.JIN_SADOWSKI;
 
 import android.app.Activity;
 import android.content.Context;
@@ -35,14 +35,18 @@ public class PersonListAdapter extends ArrayAdapter<Person> {
 
         View listViewItem = inflater.inflate(R.layout.list_layout, null, true);
 
-        TextView tvPerson = listViewItem.findViewById(R.id.textViewPerson);
+        TextView ageGroup = listViewItem.findViewById(R.id.age_group);
+        TextView classification = listViewItem.findViewById(R.id.classification);
+        TextView healthAuthority = listViewItem.findViewById(R.id.health_authority);
+        TextView date = listViewItem.findViewById(R.id.reported_date);
+        TextView sex = listViewItem.findViewById(R.id.sex);
 
         Person person = personList.get(position);
-        tvPerson.setText(person.getAge_Group()
-                + " " + person.getClassification_Reported()
-                + " " + person.getHA()
-                + " " + person.getReported_Date()
-                + " " + person.getSex());
+        ageGroup.setText("Age: " + person.getAge_Group());
+        classification.setText(person.getClassification_Reported());
+        healthAuthority.setText(person.getHA());
+        date.setText(person.getReported_Date());
+        sex.setText("Sex: " + person.getSex());
 
         return listViewItem;
     }

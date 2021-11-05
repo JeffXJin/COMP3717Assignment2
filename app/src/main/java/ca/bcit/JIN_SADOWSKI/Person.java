@@ -1,4 +1,4 @@
-package ca.bcit.comp3717assignment2;
+package ca.bcit.JIN_SADOWSKI;
 
 public class Person {
     String Age_Group;

@@ -1,11 +1,10 @@
-package ca.bcit.comp3717assignment2;
+package ca.bcit.JIN_SADOWSKI;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -74,8 +73,7 @@ public class DateCasesActivity extends AppCompatActivity {
              */
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                personsList.clear();
-                int count = 0;
+                personsList.clear();
                 progressBar.setVisibility(View.VISIBLE);
                 for (DataSnapshot personSnapshot : dataSnapshot.getChildren()) {
                     Person person = personSnapshot.getValue(Person.class);
@@ -87,7 +85,7 @@ public class DateCasesActivity extends AppCompatActivity {
                         personsList.add(person);
                     }
                 }
-                progressBar.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.GONE);
 
                 PersonListAdapter adapter = new PersonListAdapter(DateCasesActivity.this, personsList);
                 lvPersons.setAdapter(adapter);

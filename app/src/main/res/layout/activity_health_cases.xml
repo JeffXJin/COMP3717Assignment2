@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_margin="15dp"
         android:layout_gravity="center">
 
         <TextView
@@ -18,7 +19,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="15dp"
             android:text="@string/health_authority_cases" />
 
         <ProgressBar
@@ -29,8 +29,10 @@
 
         <TextView
             android:id="@+id/health_cases_info"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="25sp"
             android:layout_margin="15dp"/>
     </LinearLayout>
 

@@ -1,4 +1,4 @@
-package ca.bcit.comp3717assignment2;
+package ca.bcit.JIN_SADOWSKI;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,29 +18,29 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity {
-    EditText editEmail;
-    EditText editPassword;
+public class RegisterActivity extends AppCompatActivity {
+    EditText editEmail, editPassword;
+    Button btnRegister;
+    TextView tvLogin;
     ProgressBar progressBar;
-    Button btnLogin;
-    TextView tvCreateNewAccount;
 
     FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
+
         editEmail = findViewById(R.id.editEmail);
         editPassword = findViewById(R.id.editPassword);
+        btnRegister = findViewById(R.id.btnRegister);
+        tvLogin = findViewById(R.id.tvLogin);
         progressBar = findViewById(R.id.progressBar);
-        btnLogin = findViewById(R.id.btnLogin);
-        tvCreateNewAccount = findViewById(R.id.tvCreateNewAccount);
-        fAuth = FirebaseAuth.getInstance();
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String email = editEmail.getText().toString().trim();
                 String password = editPassword.getText().toString().trim();
 
@@ -61,27 +61,38 @@ public class LoginActivity extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
 
-                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                // register user
+                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterActivity.this, "User Created", Toast.LENGTH_LONG).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
-                            Toast.makeText(LoginActivity.this, "ERROR: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterActivity.this, "ERROR: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }
                 });
 
             }
+
         });
 
-        tvCreateNewAccount.setOnClickListener(new View.OnClickListener() {
+        tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
+
+
+        fAuth = FirebaseAuth.getInstance();
+
+        if (fAuth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+        }
+
     }
 }

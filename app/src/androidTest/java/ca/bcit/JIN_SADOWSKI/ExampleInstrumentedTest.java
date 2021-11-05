@@ -1,4 +1,4 @@
-package ca.bcit.comp3717assignment2;
+package ca.bcit.JIN_SADOWSKI;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("ca.bcit.comp3717assignment2", appContext.getPackageName());
+        assertEquals("ca.bcit.JIN_SADOWSKI", appContext.getPackageName());
     }
 }

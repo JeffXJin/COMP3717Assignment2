@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ca.bcit.comp3717assignment2">
+    package="ca.bcit.JIN_SADOWSKI">
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.COMP3717Assignment2">
+        android:theme="@style/Theme.JIN_SADOWSKI">
         <activity
             android:name=".AgeCasesActivity"
             android:exported="true" />
@@ -17,6 +17,7 @@
             android:exported="true" />
         <activity
             android:name=".DateCasesActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="true" />
         <activity
             android:name=".GenderCasesActivity"

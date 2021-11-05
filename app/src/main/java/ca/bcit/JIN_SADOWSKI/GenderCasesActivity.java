@@ -1,4 +1,4 @@
-package ca.bcit.comp3717assignment2;
+package ca.bcit.JIN_SADOWSKI;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,16 +54,9 @@ public class GenderCasesActivity extends AppCompatActivity {
              */
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int count = 0;
-
+                progressBar.setVisibility(View.VISIBLE);
                 for (DataSnapshot personSnapshot : dataSnapshot.getChildren()) {
                     Person person = personSnapshot.getValue(Person.class);
-                    count++;
-                    if (count >= dataSnapshot.getChildrenCount()) {
-                        progressBar.setVisibility(View.INVISIBLE);
-                    } else {
-                        progressBar.setVisibility(View.VISIBLE);
-                    }
 
                     switch (Objects.requireNonNull(person).getSex()) {
                         case GENDER_MALE:
@@ -79,7 +72,7 @@ public class GenderCasesActivity extends AppCompatActivity {
                 String genderCaseOut = "Male: " + genderMaleCount + "\n" +
                         "Female: " + genderFemaleCount + "\n" +
                         GENDER_UNKNOWN + ": " + genderUnknownCount;
-
+                progressBar.setVisibility(View.INVISIBLE);
                 genderCasesTv.setText(genderCaseOut);
             }
 
