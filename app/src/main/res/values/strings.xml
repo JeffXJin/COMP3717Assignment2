@@ -18,4 +18,22 @@
     <string name="month">Month</string>
     <string name="find">Find</string>
     <string name="date_text">Enter date and click FIND to search for cases.</string>
+    <string-array name="year_array">
+        <item>2020</item>
+        <item>2021</item>
+    </string-array>
+    <string-array name="month_array">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 </resources>

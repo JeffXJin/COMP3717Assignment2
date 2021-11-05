@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,8 +25,8 @@ public class DateCasesActivity extends AppCompatActivity {
     List<Person> personsList;
     ListView lvPersons;
 
-    EditText monthEditText;
-    EditText yearEditText;
+    Spinner monthSpinner;
+    Spinner yearSpinner;
     String monthString;
     String yearString;
 
@@ -37,6 +38,7 @@ public class DateCasesActivity extends AppCompatActivity {
         databasePersons = FirebaseDatabase.getInstance().getReference();
         lvPersons = findViewById(R.id.lvPersons);
         personsList = new ArrayList<Person>();
+
     }
 
     @Override
@@ -53,12 +55,16 @@ public class DateCasesActivity extends AppCompatActivity {
         final TextView dateInfoTv = findViewById(R.id.date_info_text);
         dateInfoTv.setVisibility(View.INVISIBLE);
 
-        monthEditText = findViewById(R.id.date_month);
-        yearEditText = findViewById(R.id.date_year);
+        monthSpinner = findViewById(R.id.date_month);
+        yearSpinner = findViewById(R.id.date_year);
 
-        monthString = monthEditText.getText().toString();
-        yearString = yearEditText.getText().toString();
-
+        int month = monthSpinner.getSelectedItemPosition() + 1;
+        if (month + 1 < 9) {
+            monthString = "0" + new String(Integer.toString(month + 1));
+        } else {
+            monthString = new String(Integer.toString(month + 1));
+        }
+        yearString = yearSpinner.getSelectedItem().toString();
         databasePersons.addValueEventListener(new ValueEventListener() {
 
             /**
@@ -70,6 +76,7 @@ public class DateCasesActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                personsList.clear();
                 int count = 0;
+                progressBar.setVisibility(View.VISIBLE);
                 for (DataSnapshot personSnapshot : dataSnapshot.getChildren()) {
                     Person person = personSnapshot.getValue(Person.class);
 
@@ -79,13 +86,8 @@ public class DateCasesActivity extends AppCompatActivity {
                     if (dateMonth.equals(monthString) && dateYear.equals(yearString)) {
                         personsList.add(person);
                     }
-                    count++;
-                    if (count >= dataSnapshot.getChildrenCount()) {
-                        progressBar.setVisibility(View.INVISIBLE);
-                    } else {
-                        progressBar.setVisibility(View.VISIBLE);
-                    }
                 }
+                progressBar.setVisibility(View.INVISIBLE);
 
                 PersonListAdapter adapter = new PersonListAdapter(DateCasesActivity.this, personsList);
                 lvPersons.setAdapter(adapter);
