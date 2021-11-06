@@ -27,14 +27,17 @@
             android:exported="true"
             android:parentActivityName=".MainActivity"/>
         <activity
+            android:theme="@style/Theme.JIN_SADOWSKI_AUTH"
             android:name=".RegisterActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:exported="true">
         </activity>
 
         <activity
+            android:theme="@style/Theme.JIN_SADOWSKI_AUTH"
             android:name=".LoginActivity"
             android:exported="true">
                 <intent-filter>

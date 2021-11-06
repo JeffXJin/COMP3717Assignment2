@@ -8,50 +8,88 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <include layout="@layout/toolbar" android:id="@+id/toolbar" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <LinearLayout
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center|center_vertical"
         android:orientation="vertical">
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/main_title_info"
+            android:textAlignment="center"
+            android:textColor="#EE001C"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/covid_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="@string/covid_image"
+            app:srcCompat="@mipmap/covid_img_foreground" />
+
+        <LinearLayout
+            android:id="@+id/buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/student1"/>
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/ageButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:onClick="onAgeClick"
+                android:text="@string/age_group_cases" />
+
+            <Button
+                android:id="@+id/healthButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:onClick="onHealthClick"
+                android:text="@string/health_authority_cases" />
+
+            <Button
+                android:id="@+id/genderButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:onClick="onGenderClick"
+                android:text="@string/gender_cases" />
+
+            <Button
+                android:id="@+id/dateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:onClick="onDateClick"
+                android:text="@string/date_cases" />
+        </LinearLayout>
 
         <TextView
+            android:id="@+id/student1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/student2"/>
+            android:layout_marginTop="25dp"
+            android:text="@string/student1" />
 
-        <Button
-            android:id="@+id/ageButton"
+        <TextView
+            android:id="@+id/student2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onAgeClick"
-            android:text="@string/age_group_cases" />
-
-        <Button
-            android:id="@+id/healthButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onHealthClick"
-            android:text="@string/health_authority_cases" />
-
-        <Button
-            android:id="@+id/genderButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onGenderClick"
-            android:text="@string/gender_cases" />
-
-        <Button
-            android:id="@+id/dateButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onDateClick"
-            android:text="@string/date_cases" />
+            android:text="@string/student2" />
     </LinearLayout>
 </LinearLayout>

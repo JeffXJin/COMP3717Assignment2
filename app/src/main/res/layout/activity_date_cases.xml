@@ -7,7 +7,9 @@
     android:orientation="vertical"
     tools:context=".DateCasesActivity">
 
-    <include layout="@layout/toolbar" android:id="@+id/toolbar" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,14 +21,14 @@
             android:id="@+id/date_cases_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_margin="15dp"
-            android:textColor="@color/white"
             android:background="@drawable/title_back"
             android:padding="10dp"
             android:paddingStart="100dp"
             android:paddingEnd="100dp"
-            android:layout_gravity="center"
-            android:text="@string/date_cases" />
+            android:text="@string/date_cases"
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -40,20 +42,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textSize="25sp"
-            android:text="@string/year"
             android:entries="@array/year_array"
-            android:textAlignment="center"/>
+            android:text="@string/year"
+            android:textAlignment="center"
+            android:textSize="25sp" />
 
         <Spinner
             android:id="@+id/date_month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textSize="25sp"
-            android:text="@string/month"
             android:entries="@array/month_array"
-            android:textAlignment="center"/>
+            android:text="@string/month"
+            android:textAlignment="center"
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/filter_date_button"
@@ -68,24 +70,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/date_info_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_gravity="center"
-            android:text="@string/date_text"
-            />
+            android:layout_marginTop="15dp"
+            android:text="@string/date_text" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp" />
     </LinearLayout>
-    <ListView
-        android:id="@+id/lvPersons"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/lvPersons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
 </LinearLayout>

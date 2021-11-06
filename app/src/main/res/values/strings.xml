@@ -18,6 +18,8 @@
     <string name="month">Month</string>
     <string name="find">Find</string>
     <string name="date_text">Enter date and click FIND to search for cases.</string>
+    <string name="main_title_info">COVID Case Reports \n(2020 – 2021)</string>
+    <string name="covid_image">covid_image</string>
     <string-array name="year_array">
         <item>2020</item>
         <item>2021</item>

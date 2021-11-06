@@ -5,14 +5,24 @@ import androidx.appcompat.widget.ShareActionProvider;
 import androidx.core.view.MenuItemCompat;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
+
+    ImageView img;
+    int imgHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        img = findViewById(R.id.covid_img);
+        imgHeight = img.getDrawable().getIntrinsicHeight();
     }
 
     @Override
@@ -56,5 +69,22 @@ public class MainActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        TextView stu1 = findViewById(R.id.student1);
+        TextView stu2 = findViewById(R.id.student2);
+        super.onConfigurationChanged(newConfig);
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            img.getLayoutParams().height = 0;
+            stu1.setVisibility(View.INVISIBLE);
+            stu2.setVisibility(View.INVISIBLE);
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            img.getLayoutParams().height = imgHeight;
+            stu1.setVisibility(View.VISIBLE);
+            stu2.setVisibility(View.VISIBLE);
+        }
     }
 }
